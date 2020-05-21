@@ -77,6 +77,10 @@ void MarkovChain::printSV(){
 	cout << *SteadyVector << endl;
 }
 
+int MarkovChain::getCurrentStep(){
+	return step;
+}
+
 void UpdateEvent(Event &e){
 	double r=((double) rand())/(RAND_MAX);
 	for(int i = 0; i < e.probabilities.size(); i++){
@@ -86,7 +90,6 @@ void UpdateEvent(Event &e){
 		}
 		r -= e.probabilities[i];
 	}
-	
 }
 
 void GetProbabilitiesEvent(Event &e, MarkovChain m){
@@ -97,5 +100,6 @@ void GetProbabilitiesEvent(Event &e, MarkovChain m){
 			aux_id = i;
 	}
 	Matrix tm = m.getTM();
+	cout << aux_id << endl;
 	e.probabilities = tm.get_row(aux_id+1);
 }

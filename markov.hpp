@@ -21,6 +21,7 @@ public:
 	void printTM();
 	void printSV();
 	double getProb(int si, int sj);
+	int getCurrentStep();
 	bool is_TM_valid();
 	Matrix getDistribution(Matrix x);
 	Matrix getTM();
